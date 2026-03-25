@@ -10,7 +10,7 @@ class IfNoneMatchTest extends TestCase
 {
     private string $response = 'OK';
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
 

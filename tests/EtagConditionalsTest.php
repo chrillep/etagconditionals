@@ -11,7 +11,7 @@ class EtagConditionalsTest extends TestCase
 {
     private string $response = 'OK';
 
-    public function tearDown(): void
+    protected function tearDown(): void
     {
         EtagConditionals::etagGenerateUsing(null);
     }
