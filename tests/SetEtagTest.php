@@ -20,14 +20,14 @@ class SetEtagTest extends TestCase
     }
 
     #[Test]
-    public function middleware_sets_etag_header()
+    public function middleware_sets_etag_header(): void
     {
         $response = $this->get('/_test/set-etag');
         $response->assertHeader('ETag', $value = null);
     }
 
     #[Test]
-    public function etag_header_has_correct_value()
+    public function etag_header_has_correct_value(): void
     {
         $value = '"'.md5($this->response).'"';
         $response = $this->get('/_test/set-etag');

@@ -21,7 +21,7 @@ class IfNoneMatchTest extends TestCase
     }
 
     #[Test]
-    public function get_request_status_200_with_none_matching_IfNoneMatch()
+    public function get_request_status_200_with_none_matching_IfNoneMatch(): void
     {
         $noneMatch = '"'.md5($this->response.'NoneMatch').'"';
         $response = $this->withHeaders([
@@ -33,7 +33,7 @@ class IfNoneMatchTest extends TestCase
     }
 
     #[Test]
-    public function get_request_status_304_with_matching_IfNoneMatch()
+    public function get_request_status_304_with_matching_IfNoneMatch(): void
     {
         $noneMatch = '"'.md5($this->response).'"';
         $response = $this->withHeaders([
@@ -45,7 +45,7 @@ class IfNoneMatchTest extends TestCase
     }
 
     #[Test]
-    public function get_request_status_200_with_matching_weaktag_if_weak_is_disabled_in_config()
+    public function get_request_status_200_with_matching_weaktag_if_weak_is_disabled_in_config(): void
     {
         Config::set('etagconditionals.if_none_match_weak', false);
         $noneMatch = 'W/"'.md5($this->response).'"';
@@ -58,7 +58,7 @@ class IfNoneMatchTest extends TestCase
     }
 
     #[Test]
-    public function get_request_status_304_with_matching_weaktag_if_weak_is_enabled_in_config()
+    public function get_request_status_304_with_matching_weaktag_if_weak_is_enabled_in_config(): void
     {
         Config::set('etagconditionals.if_none_match_weak', true);
         $noneMatch = 'W/"'.md5($this->response).'"';

@@ -18,7 +18,7 @@ class EtagConditionalsTest extends TestCase
     }
 
     #[Test]
-    public function get_default_etag()
+    public function get_default_etag(): void
     {
         $request = Request::create('/', 'GET');
         $response = response($this->response, 200);
@@ -27,7 +27,7 @@ class EtagConditionalsTest extends TestCase
     }
 
     #[Test]
-    public function get_etag_with_callback_md5()
+    public function get_etag_with_callback_md5(): void
     {
         $request = Request::create('/', 'GET');
         $response = response($this->response, 200);
@@ -40,7 +40,7 @@ class EtagConditionalsTest extends TestCase
     }
 
     #[Test]
-    public function get_etag_with_callback_sophisticated()
+    public function get_etag_with_callback_sophisticated(): void
     {
         $request = Request::create('/', 'GET');
         $response = response($this->response, 200);
@@ -53,7 +53,7 @@ class EtagConditionalsTest extends TestCase
     }
 
     #[Test]
-    public function get_etag_with_callback_with_quotes()
+    public function get_etag_with_callback_with_quotes(): void
     {
         $request = Request::create('/', 'GET');
         $response = response($this->response, 200);
