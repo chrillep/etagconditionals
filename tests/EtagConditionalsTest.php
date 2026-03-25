@@ -8,7 +8,7 @@ use Orchestra\Testbench\TestCase;
 use Symfony\Component\HttpFoundation\Response;
 use Werk365\EtagConditionals\EtagConditionals;
 
-class EtagConditionalsTest extends TestCase
+final class EtagConditionalsTest extends TestCase
 {
     private string $response = 'OK';
 

@@ -6,7 +6,7 @@ use PHPUnit\Framework\Attributes\Test;
 use Orchestra\Testbench\TestCase;
 use Werk365\EtagConditionals\Middleware\SetEtag;
 
-class SetEtagTest extends TestCase
+final class SetEtagTest extends TestCase
 {
     private string $response = 'OK';
 

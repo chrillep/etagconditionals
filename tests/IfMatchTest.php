@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Config;
 use Orchestra\Testbench\TestCase;
 use Werk365\EtagConditionals\Middleware\IfMatch;
 
-class IfMatchTest extends TestCase
+final class IfMatchTest extends TestCase
 {
     private string $response = 'OK';
 
