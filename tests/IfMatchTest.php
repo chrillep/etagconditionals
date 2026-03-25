@@ -2,6 +2,7 @@
 
 namespace Werk365\EtagConditionals\Tests;
 
+use PHPUnit\Framework\Attributes\Test;
 use Illuminate\Support\Facades\Config;
 use Orchestra\Testbench\TestCase;
 use Werk365\EtagConditionals\Middleware\IfMatch;
@@ -19,7 +20,7 @@ class IfMatchTest extends TestCase
         });
     }
 
-    /** @test */
+    #[Test]
     public function patch_request_returns_200_if_matching_IfMatch()
     {
         $ifMatch = '"'.md5($this->response).'"';
@@ -31,7 +32,7 @@ class IfMatchTest extends TestCase
         $response->assertStatus(200);
     }
 
-    /** @test */
+    #[Test]
     public function patch_request_returns_200_if_matching_IfMatch_in_list_of_etags()
     {
         $ifMatch = '"'.md5('first').'", "'.md5($this->response).'","'.md5('last').'"';
@@ -43,7 +44,7 @@ class IfMatchTest extends TestCase
         $response->assertStatus(200);
     }
 
-    /** @test */
+    #[Test]
     public function patch_request_returns_200_if_wildcard_is_used()
     {
         $ifMatch = '"'.md5('first').'", "*","'.md5('last').'"';
@@ -55,7 +56,7 @@ class IfMatchTest extends TestCase
         $response->assertStatus(200);
     }
 
-    /** @test */
+    #[Test]
     public function patch_request_returns_412_if_none_matching_IfMatch()
     {
         $ifMatch = '"'.md5($this->response.'ifMatch').'"';
@@ -67,7 +68,7 @@ class IfMatchTest extends TestCase
         $response->assertStatus(412);
     }
 
-    /** @test */
+    #[Test]
     public function patch_request_returns_412_if_none_matching_IfMatch_in_list_of_etags()
     {
         $ifMatch = '"'.md5('first').'", "'.md5($this->response.'ifMatch').'","'.md5('last').'"';
@@ -79,7 +80,7 @@ class IfMatchTest extends TestCase
         $response->assertStatus(412);
     }
 
-    /** @test */
+    #[Test]
     public function patch_request_returns_200_if_matching_weaktag_when_weak_is_enabled_in_config()
     {
         Config::set('etagconditionals.if_match_weak', true);
@@ -92,7 +93,7 @@ class IfMatchTest extends TestCase
         $response->assertStatus(200);
     }
 
-    /** @test */
+    #[Test]
     public function patch_request_returns_412_if_matching_weaktag_when_weak_is_disabled_in_config()
     {
         Config::set('etagconditionals.if_match_weak', false);

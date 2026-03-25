@@ -2,6 +2,7 @@
 
 namespace Werk365\EtagConditionals\Tests;
 
+use PHPUnit\Framework\Attributes\Test;
 use Illuminate\Support\Facades\Config;
 use Orchestra\Testbench\TestCase;
 use Werk365\EtagConditionals\Middleware\IfNoneMatch;
@@ -19,7 +20,7 @@ class IfNoneMatchTest extends TestCase
         });
     }
 
-    /** @test */
+    #[Test]
     public function get_request_status_200_with_none_matching_IfNoneMatch()
     {
         $noneMatch = '"'.md5($this->response.'NoneMatch').'"';
@@ -31,7 +32,7 @@ class IfNoneMatchTest extends TestCase
         $response->assertStatus(200);
     }
 
-    /** @test */
+    #[Test]
     public function get_request_status_304_with_matching_IfNoneMatch()
     {
         $noneMatch = '"'.md5($this->response).'"';
@@ -43,7 +44,7 @@ class IfNoneMatchTest extends TestCase
         $response->assertStatus(304);
     }
 
-    /** @test */
+    #[Test]
     public function get_request_status_200_with_matching_weaktag_if_weak_is_disabled_in_config()
     {
         Config::set('etagconditionals.if_none_match_weak', false);
@@ -56,7 +57,7 @@ class IfNoneMatchTest extends TestCase
         $response->assertStatus(200);
     }
 
-    /** @test */
+    #[Test]
     public function get_request_status_304_with_matching_weaktag_if_weak_is_enabled_in_config()
     {
         Config::set('etagconditionals.if_none_match_weak', true);
