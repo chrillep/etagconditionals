@@ -2,8 +2,8 @@
 
 namespace Werk365\EtagConditionals\Tests;
 
-use PHPUnit\Framework\Attributes\Test;
 use Orchestra\Testbench\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Werk365\EtagConditionals\Middleware\SetEtag;
 
 final class SetEtagTest extends TestCase

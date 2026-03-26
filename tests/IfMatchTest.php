@@ -2,9 +2,9 @@
 
 namespace Werk365\EtagConditionals\Tests;
 
-use PHPUnit\Framework\Attributes\Test;
 use Illuminate\Support\Facades\Config;
 use Orchestra\Testbench\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Werk365\EtagConditionals\Middleware\IfMatch;
 
 final class IfMatchTest extends TestCase
