@@ -2,9 +2,9 @@
 
 namespace Werk365\EtagConditionals\Tests;
 
-use PHPUnit\Framework\Attributes\Test;
 use Illuminate\Http\Request;
 use Orchestra\Testbench\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Symfony\Component\HttpFoundation\Response;
 use Werk365\EtagConditionals\EtagConditionals;
 
